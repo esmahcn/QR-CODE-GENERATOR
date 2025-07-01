@@ -12,7 +12,7 @@
 <body>
 
   <div class="container">
-    <img src="resources/Logo-small.svg" alt="Logo" class="logo" />
+    <img src="resources/Logo.svg" alt="Logo" class="logo" />
 
 
     <div class="input-wrapper">
@@ -20,8 +20,15 @@
       <button id="generate-btn">QR code</button>
     </div>
 
+    <!-- NEW QR BAR -->
+    <h2 class="qr-bar">Your QR Code</h2>
+
     <div class="qr-box">
       <img id="qr-image" src="" alt="QR Code will appear here" />
+      <div class="btn-group">
+        <button id="download-btn" disabled>Download</button>
+        <button id="share-btn" disabled>Share</button>
+      </div>
     </div>
   </div>
 
