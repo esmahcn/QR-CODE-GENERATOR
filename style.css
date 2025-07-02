@@ -1,195 +1,103 @@
-/* Reset & Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Base styles */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    color: #fff;
-    background-image: url('resources/qa-bg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background 0.5s ease;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #1f1f2e, #191929);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
 }
 
-/* Container */
 .container {
-
-    padding: 40px 30px;
-
-
-    text-align: center;
-    width: 100%;
-    max-width: 420px;
-    animation: fadeIn 0.5s ease-in-out;
+  background: #2e2e42;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px; /* limits width on large screens */
+  box-sizing: border-box;
 }
 
-/* Logo */
 .logo {
-    width: 60px;
-    margin-bottom: 16px;
+  width: 120px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
-/* Heading */
-h1 {
-    font-size: 26px;
-    margin-bottom: 25px;
-    background: linear-gradient(to right, #ff00c8, #00ffe7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Input + Generate Button */
 .input-wrapper {
-    position: relative;
-    margin-bottom: 25px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
-.input-wrapper input {
-    width: 100%;
-    padding: 14px 110px 14px 16px;
-    font-size: 16px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    background-color: rgba(36, 36, 41, 0.822);
-    color: #fff;
+input[type="text"] {
+  flex: 1 1 200px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  min-width: 0; /* fix flexbox shrinking issues */
 }
 
-.input-wrapper input::placeholder {
-    color: #ccc;
+button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  flex-shrink: 0;
+  font-size: 16px;
 }
 
-.input-wrapper button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    padding: 0 24px;
-    border: none;
-    border-radius: 0 12px 12px 0;
-    background-color: rgb(67, 67, 226);
-    color: #000;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
+button:hover {
+  background-color: #357ab7;
 }
 
-.input-wrapper button:hover {
-    opacity: 0.85;
-}
-
-/* QR Code Box */
 .qr-box {
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.qr-box img {
-    display: none;
-    width: 220px;
-    height: 220px;
-    border: 4px solid #00ffe7;
-    border-radius: 16px;
-    background-color: #fff;
-    animation: fadeIn 0.4s ease-in-out;
+#qr-image canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 20px;
 }
 
-/* Button Group for Download/Share */
 .btn-group {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.btn-group button {
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: rgb(67, 67, 226);
-    color: #000;
-    transition: 0.3s ease;
-}
-
-.btn-group button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btn-group button:hover:not(:disabled) {
-    opacity: 0.85;
-}
-
-/* Optional Author Credit */
-.author-info {
-    font-size: 13px;
-    text-align: center;
-    margin-top: 20px;
-    color: rgb(180, 190, 200);
-}
-
-.author-info a {
-    color: #00ffe7;
-    text-decoration: none;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Responsive */
+/* Responsive tweaks for smaller screens */
 @media (max-width: 480px) {
-    .container {
-        padding: 30px 20px;
-    }
+  .input-wrapper {
+    flex-direction: column;
+  }
 
-    h1 {
-        font-size: 22px;
-    }
+  input[type="text"], button {
+    width: 100%;
+  }
 
-    .input-wrapper input {
-        padding-right: 100px;
-    }
+  .btn-group {
+    flex-direction: column;
+  }
 
-    .qr-box img {
-        width: 180px;
-        height: 180px;
-    }
-
-    .btn-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-.qr-bar {
-    display: none;
-    font-size: 18px;
-    margin: 20px 0 10px;
-    padding: 8px 0;
-    font-weight: 600;
-    color: #fff;
-    border-bottom: 2px solid #00ffe7;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .btn-group button {
+    width: 100%;
+  }
 }
